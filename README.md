@@ -19,6 +19,6 @@ For the Nashville Housing Project in SQL, I separated an address column into 3 m
 the table to show the newly added columns. I also removed null values from the table and removed duplicates. 
 
 
-#Excel Project
+# Excel Project
 For the Excel Project, I practiced using formulas like vlookup, concatenate, mid, left and IF statement. I created two pivot tables 
 and created graphs.  I also solved two problem questions. 
