@@ -25,4 +25,4 @@ and created graphs.  I also solved two problem questions.
 
 
 # Pokemon Project 
-For this project, I used Pandas specifically. I used groupby for the dat, filtered the data and sorted the data using various formulas. 
+For this project, I used Pandas specifically. I used groupby for the data, filtered the data and sorted the data using various formulas. 
