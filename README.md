@@ -22,3 +22,7 @@ the table to show the newly added columns. I also removed null values from the t
 # Excel Project
 For the Excel Project, I practiced using formulas like vlookup, concatenate, mid, left and IF statement. I created two pivot tables 
 and created graphs.  I also solved two problem questions. 
+
+
+# Pokemon Project 
+For this project, I used Pandas specifically. I used groupby for the dat, filtered the data and sorted the data using various formulas. 
