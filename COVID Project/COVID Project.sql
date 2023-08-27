@@ -1,11 +1,20 @@
---select *
---from PortfolioProject.dbo.CovidDeaths
---order by 3,4
+-- delete non locations from location column
+select *
+from PortfolioProject.dbo.CovidDeaths
+order by 3,4
+delete from PortfolioProject.dbo.CovidDeaths where location in ('Africa', 'Europe', 'Oceania', 'Europe', 'European Union',
+'North America', 'South America', 'High income', 'Low income', 'Lower middle income', 'Upper middle income','Asia',
+'International', 'World')
 
---select *
---from PortfolioProject.dbo.CovidVaccinations
---order by 3,4
+-- delete non locations from location column
+select *
+from PortfolioProject.dbo.CovidVaccinations
+order by 3,4
+delete from PortfolioProject.dbo.CovidVaccinations where location in ('Africa', 'Europe', 'Oceania', 'Europe', 'European Union',
+'North America', 'South America', 'High income', 'Low income', 'Lower middle income', 'Upper middle income','Asia',
+'International', 'World')
 
+-- looking at total cases, new cases, total deaths, and population by location and date
 select location, date, total_cases, new_cases, total_deaths, population
 from PortfolioProject.dbo.CovidDeaths
 order by 1,2
@@ -40,13 +49,6 @@ group by location
 order by TotalDeathCount desc
 
 
--- showing TotalDeathCount by continent
-select location, max(cast(total_deaths as int)) as TotalDeathCount
-from PortfolioProject.dbo.CovidDeaths
-where continent is null and location not like '%income%'
-group by location
-order by TotalDeathCount desc
-
 
 -- global numbers 
 
@@ -74,16 +76,6 @@ on dea.location = vac.location
 and dea.date = vac.date
 where dea.continent is not null
 order by 1,2,3
-
-
-
-select dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations, sum(convert(int, vac.new_vaccinations)) over (partition by dea.location order by dea.location, dea.date)
-from PortfolioProject.dbo.CovidDeaths dea
-join PortfolioProject.dbo.CovidVaccinations vac
-on dea.location = vac.location
-and dea.date = vac.date
-where dea.continent is not null and dea.date like '%2022%'
-order by 2,3
 
 
 -- use cte
