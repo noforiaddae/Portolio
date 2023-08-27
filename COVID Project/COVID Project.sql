@@ -19,25 +19,29 @@ select location, date, total_cases, new_cases, total_deaths, population
 from PortfolioProject.dbo.CovidDeaths
 order by 1,2
 
--- looking at total cases vs total deaths
+-- looking at total cases vs total deaths for United States
 select location, date, total_cases,total_deaths, (total_deaths/total_cases)*100 as DeathPercentage
 from PortfolioProject.dbo.CovidDeaths
 where location like '%states%'
 order by 1,2
 
 
--- looking at total cases vs population
--- shows what percentage of population got Covid for 2022
+-- looking at total cases vs population in 2022
+select location, date, total_cases, population, (total_cases/population)*100 as PercentPopulationInfected
+from PortfolioProject.dbo.CovidDeaths
+where date like '%2022%'
+order by 1,2
+
+-- shows what percentage of population got Covid for 2022 in Ghana
 select location, date, total_cases, population, (total_cases/population)*100 as PercentPopulationInfected
 from PortfolioProject.dbo.CovidDeaths
 where location like '%Ghana%' and date like '%2022%'
 order by 1,2
 
 
--- looking at countries with highest infectino rate compared to population 
+-- looking at countries with highest infection rate compared to population 
 select location, max(total_cases) as HighestInfectionCount, population, max((total_cases/population))*100 as  PercentPopulationInfected
 from PortfolioProject.dbo.CovidDeaths
---where location like '%Ghana%'
 group by location, population
 order by PercentPopulationInfected desc
 
